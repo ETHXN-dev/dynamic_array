@@ -23,3 +23,20 @@ DynamicArray *da_create() {
 
     return array;
 }
+
+void da_push(DynamicArray *da, int val) {
+    if (da->size == da->capacity) {
+        int *new_data = realloc(da->data, sizeof(int) * da->capacity * 2);
+        if (new_data == NULL) {
+            printf("Error in memory allocation!\n");
+            exit(1);
+        }
+        da->data = new_data;
+        da->capacity *= 2;
+    }
+
+    da->data[da->size] = val;
+    da->size++;
+
+    return;
+}
