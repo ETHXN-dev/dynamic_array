@@ -40,3 +40,11 @@ void da_push(DynamicArray *da, int val) {
 
     return;
 }
+
+int da_get(DynamicArray *da, int index) {
+    if (index >= da->size || index < 0) {
+        printf("Error: cannot access element, out of bounds!");
+        return -1;
+    } else
+        return da->data[index];
+}
