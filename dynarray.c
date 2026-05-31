@@ -48,3 +48,8 @@ int da_get(DynamicArray *da, int index) {
     } else
         return da->data[index];
 }
+
+void da_free(DynamicArray *da) {
+    free(da->data);
+    free(da);
+}
